@@ -1,15 +1,11 @@
-import React, {Component} from 'react'
-import {render} from 'react-dom'
+import React from 'react'
+import { render } from 'react-dom'
+import * as demo from './demo'
+import Demo from './components/Demo'
 
-import Example from '../../src'
+const App = () =>
+  Object.entries(demo).map(([key, value]) => (
+    <Demo name={key} examples={value} key={key} />
+  ))
 
-class Demo extends Component {
-  render() {
-    return <div>
-      <h1>@simcheolhwan/react-components Demo</h1>
-      <Example/>
-    </div>
-  }
-}
-
-render(<Demo/>, document.querySelector('#demo'))
+render(<App />, document.querySelector('#demo'))
